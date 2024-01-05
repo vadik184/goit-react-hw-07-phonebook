@@ -6,12 +6,13 @@ import { Section } from './Section/Section';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from '../redux/api';
 import { useEffect } from 'react';
-import { selectError, selectIsLoading } from '../redux/selectors';
+import { selectIsLoading } from '../redux/selectors';
+import { Loader } from './Loader/Loader';
 
 export const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -22,7 +23,7 @@ export const App = () => {
         <Section title="Phonebook">
           <Form />
         </Section>
-        {isLoading && !error && <p>Request in progress...</p>}
+        {isLoading && <Loader />}
         <Section title="Contacts">
           <Filter />
           <ContactList />

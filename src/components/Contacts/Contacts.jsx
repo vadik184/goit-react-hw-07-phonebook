@@ -5,13 +5,14 @@ import {
   StyledListItemText,
 } from 'components/ContactList/ContactListStyle';
 import { deleteContact } from '../../redux/api';
+import { formatName, formatPhoneNumber } from 'helpers/script';
 
 export const ContactListItem = ({ contact: { id, name, number } }) => {
   const dispatch = useDispatch();
   return (
     <StyledListItem key={id}>
       <StyledListItemText>
-        {name}: {number}
+        {formatName(name)}: {formatPhoneNumber(number)}
       </StyledListItemText>
       <StyledDeletButton
         type="button"

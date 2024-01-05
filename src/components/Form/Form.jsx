@@ -79,8 +79,8 @@ export const Form = () => {
           name="number"
           value={number}
           onChange={hendleChange}
-          placeholder="Enter 7-digit number"
-          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+          placeholder="Enter 10-digit number"
+          pattern="[0-9]{10}"
           required
         />
       </StyledFormLabel>
