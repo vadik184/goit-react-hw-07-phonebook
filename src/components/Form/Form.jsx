@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { nanoid } from '@reduxjs/toolkit';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contactSlice';
+import { addContact } from '../../redux/api';
 import {
   StyledButton,
   StyledFormIput,
   StyledFormLabel,
   StyledForm,
 } from 'components/Form/FormStyle';
+
 const getContacts = state => state.contacts.contacts;
 
 export const Form = () => {
@@ -79,7 +80,7 @@ export const Form = () => {
           value={number}
           onChange={hendleChange}
           placeholder="Enter 7-digit number"
-          pattern="[0-9]{7}"
+          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           required
         />
       </StyledFormLabel>
