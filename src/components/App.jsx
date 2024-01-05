@@ -22,12 +22,11 @@ export const App = () => {
         <Section title="Phonebook">
           <Form />
         </Section>
-
+        {isLoading && !error && <p>Request in progress...</p>}
         <Section title="Contacts">
           <Filter />
           <ContactList />
         </Section>
-        {isLoading && !error && <p>Request in progress...</p>}
       </StyledContainer>
     </>
   );

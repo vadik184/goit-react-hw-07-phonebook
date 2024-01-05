@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-// import { formatName, formatPhoneNumber } from 'helpers/script';
 import { addContact, deleteContact, fetchContacts } from './api';
 
 const handlePending = state => {
